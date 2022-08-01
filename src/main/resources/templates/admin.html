@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        label {
+            font-size: 20px;
+        }
+        .btn {
+            background-color: transparent;
+            color: black;
+            border: 1px solid black;
+        }
+        .btn:hover {
+            background-color: black;
+            color: white;
+            box-shadow : 3px 3px 10px white;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse fixed-top" style="margin: 0px 30px 0px 30px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Samsung
+            </a>
+        </div>
+        <a href="" class="btn navbar-right"  th:href="@{/logout}" style="margin: 9px 10px 0px 0px; color: green;">Logout</a>
+        <a href="" class="btn navbar-right" th:href="@{/admin}" style="margin: 9px 10px 0px 0px; color: green;">Admin</a>
+        <!-- <span class="nav navbar-nav navbar-brand navbar-center" style="margin: 0px 0px 0px 380px;">
+      Welcome to Admin
+</span> -->
+        <!-- <div class="nav navbar-nav navbar-right" style="background-color: transparent;">
+  <button class="btn" type="submit" value="Login" style="background-color: transparent; color: white; margin: 10px 30px 0px 0px;">Login</button>
+</div> -->
+    </div>
+</nav>
+<div class="jumbotron text-center" style="margin: 0px 30px 0px 30px;">
+    <h1 class="display-4">Welcome Admin</h1>
+</div>
+<div class="container-fluid" style="margin: 20px 30px 0px 30px;">
+    <div class="row">
+        <div class="col-sm-6 pt-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Categories</h4>
+                    <p class="card-text">Manage the categories section here.</p>
+                    <a href="#" th:href="@{/admin/categories}" class="card-link btn">Manage</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 pt-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Products</h4>
+                    <p class="card-text">Manage all the products here.</p>
+                    <a href="#" th:href="@{/admin/products}" class="card-link btn">Manage</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: myfooter" ></div>
+
+</body>
+
+</html>

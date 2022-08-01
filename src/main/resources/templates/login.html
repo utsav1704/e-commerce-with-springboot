@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
+    <style>
+        label{
+            font-size: 20px;
+        }
+        .btn{
+            background-color: transparent;
+            border: 1px solid black;
+        }
+        .btn:hover{
+            background-color: black;
+            color: white;
+            box-shadow : 3px 3px 10px white;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="fragments/header :: myheader"></div>
+
+<!--<nav class="navbar navbar-inverse fixed-top" style="margin: 0px 30px 0px 30px;">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="navbar-header">-->
+<!--            <a class="navbar-brand" href="#">-->
+<!--                Samsung-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <span class="nav navbar-nav navbar-brand navbar-center" style="margin: 0px 0px 0px 380px;">-->
+<!--          Welcome to Samsung Store-->
+<!--        </span>-->
+<!--        &lt;!&ndash; <div class="nav navbar-nav navbar-right" style="background-color: transparent;">-->
+<!--          <button class="btn" type="submit" value="Login" style="background-color: transparent; color: white; margin: 10px 30px 0px 0px;">Login</button>-->
+<!--        </div> &ndash;&gt;-->
+<!--        <form class="form-inline">-->
+<!--            <span class="btn navbar-right" sec:authorize="isAuthenticated()"  style="margin: 9px 10px 0px 0px; color: darkgray;" th:text="${cartCount}">0</span>-->
+<!--            <a href="" class="btn navbar-right" th:href="@{/cart}" style="margin: 9px 10px 0px 0px; color: darkgray;"><i-->
+<!--                    class="fa fa-shopping-cart"></i></a>-->
+<!--            <a href="" class="btn navbar-right" sec:authorize="isAnonymous()" th:href="@{/login}" style="margin: 9px 10px 0px 0px; color: green;">Login</a>-->
+<!--            <a href="" class="btn navbar-right" sec:authorize="isAuthenticated()" th:href="@{/logout}" style="margin: 9px 10px 0px 0px; color: green;">Logout</a>-->
+<!--            <a class="btn navbar-right"  style="margin: 9px 10px 0px 0px; color: green;" th:href="@{/shop}" href="#">Shop</a>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</nav>-->
+<h1 style="text-align: center;">Login</h1>
+<div class="container">
+    <form name="f2" th:action="@{/login}" th:object="${user}" method="post">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+        <div th:if="${param.error}" class="alert alert-error text-danger">
+            Invalid username or password.
+        </div>
+        <button type="submit" class="btn" name="sub1" value="Login">Login</button><br><br><br>
+        <span >Don't have an account <a class="linkControl" href="./register.html"
+                                        th:href="@{/register}">Register here</a></span>
+<!--        <button type="submit" class="btn" name="sub1" value="Register">Register</button>-->
+    </form>
+    <br>
+    <h3>OR</h3>
+    <div style="width:20rem" class="card-body">
+        <a class="btn btn-block btn-social btn-google" href="/oauth2/authorization/google" role="button">
+            <i class="fab fa-google"></i>
+            Sign In with Google
+        </a>
+    </div>
+
+</div>
+    <div th:replace="fragments/footer :: myfooter" ></div>
+
+</body>
+</html>

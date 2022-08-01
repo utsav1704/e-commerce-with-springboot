@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<body>
+<div th:fragment="myheader" >
+    <style>
+    .navbar-inverse .navbar-brand {
+        color: #ffffff;
+    }
+    </style>
+    <nav class="navbar navbar-inverse fixed-top" style="margin: 0px 30px 0px 30px;">
+        <div class="container-fluid">
+            <div class="navbar-header" >
+                <a class="navbar-brand" th:href="@{/}" href="#" >
+                    SAMSUNG
+                </a>
+            </div>
+            <span class="nav navbar-nav navbar-brand navbar-center" style="margin: 0px 0px 0px 380px;">
+          Welcome to Samsung Store
+        </span>
+            <!-- <div class="nav navbar-nav navbar-right" style="background-color: transparent;">
+              <button class="btn" type="submit" value="Login" style="background-color: transparent; color: white; margin: 10px 30px 0px 0px;">Login</button>
+            </div> -->
+            <form class="form-inline">
+                <span class="btn navbar-right" sec:authorize="isAuthenticated()"  style="margin: 9px 10px 0px 0px; color: darkgray;" th:text="${cartCount}">0</span>
+                <a href="" class="btn navbar-right" th:href="@{/cart}" style="margin: 9px 10px 0px 0px; color: darkgray;"><i
+                        class="fa fa-shopping-cart"></i></a>
+                <a href="" class="btn navbar-right" sec:authorize="isAnonymous()" th:href="@{/login}" style="margin: 9px 10px 0px 0px; color: white;">Login</a>
+                <a href="" class="btn navbar-right" sec:authorize="isAuthenticated()" th:href="@{/logout}" style="margin: 9px 10px 0px 0px; color: white;">Logout</a>
+                <a class="btn navbar-right"  style="margin: 9px 10px 0px 0px; color: white;" th:href="@{/shop}" href="#">Shop</a>
+            </form>
+        </div>
+    </nav>
+
+</div>
+</body>
+</html>

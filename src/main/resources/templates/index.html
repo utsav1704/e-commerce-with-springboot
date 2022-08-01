@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </body>
+    <title>Home</title>
+    <style>
+    ul.li {
+      width: 200px;
+      /* display: block; */
+    }
+    .bt{
+      background-color: transparent;
+      text-decoration: underline;
+      border: 0px transparent;
+      font-size: 15px;
+    }
+    .btn{
+            background-color: transparent;
+            border: 1px solid black;
+     }
+    .btn:hover{
+            background-color: black;
+            color: white;
+            box-shadow : 2px 2px 10px white;
+            border: 1px solid white;
+    }
+    .carousel-indicators li{
+        background-color : #000000;
+    }
+    .carousel-indicators li.active{
+        background-color : green;
+    }
+
+  </style>
+    <script>
+    function change(s) {
+      var ad = document.getElementById('ifd');
+
+      ad.src = s + ".html";
+    }
+  </script>
+</head>
+
+<body>
+
+    <div th:replace="fragments/header :: myheader"></div>
+    <br>
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a th:href="@{/shop}">
+                        <img src="https://www.gizmochina.com/wp-content/uploads/2021/01/Galaxy-S21-Series-1.jpg" alt="Chicago" style="width:100%; height:550px">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a th:href="@{/shop}">
+                        <img src="https://images.moneycontrol.com/static-mcnews/2021/08/galaxy-z-fold3-770x433.jpg?impolicy=website&width=770&height=431" alt="Chicago" style="width:100%; height:550px">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a th:href="@{/shop}">
+                        <img src="https://www.notebookcheck.net/uploads/tx_nbc2/4_3_Teaser_Samsung_Galaxy_Tab_S7_SM-T870_MysticBronze.jpg" alt="Chicago" style="width:100%; height:550px">
+                    </a>
+                </div>
+                <div class="item">
+                    <a th:href="@{/shop}">
+                        <img src="https://piunikaweb.com/wp-content/uploads/2021/08/Galaxy-Watch-4-Classic-One-UI-Watch-Wear-OS-3-FI-new.jpg" alt="New york" style="width:100%; height:550px">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 20px;">
+        <a th:href="@{/shop}" href="#" >
+            <img th:src="@{${'/images/samsung-fold.gif'}}" src="samsung-fold.gif" width="100%" height="506px" alt="">
+            <img th:src="@{${'/images/festival.jpg'}}" src="festival.jpg" width="100%" height="506px" style="margin-top: 20px;" alt="">
+        </a>
+
+    </div>
+    <div th:replace="fragments/footer :: myfooter" ></div>
+</body>
+
+</html>
